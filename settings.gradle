@@ -1,0 +1,2 @@
+include ':app', ':laravel_echo'
+rootProject.name='SampleChatDemo'

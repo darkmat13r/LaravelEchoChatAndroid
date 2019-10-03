@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="resource"
+            type="com.darkmat13r.samplechatdemo.data.Resource" />
+        <variable
+            name="viewModel"
+            type="com.darkmat13r.samplechatdemo.ui.chat.ChatMessagesViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.darkmat13r.samplechatdemo.ui.chat.ChatActivityFragment"
+        tools:showIn="@layout/activity_chat">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatMessages"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:listitem="@layout/item_sent_message"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            style="@style/AppTheme.EditText"
+            android:paddingLeft="@dimen/margin_small"
+            android:paddingRight="@dimen/margin_small"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_margin="@dimen/margin_small"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_attachment_black_18dp"
+                style="@style/AppTheme.IconButton"
+                android:rotation="-45"
+                app:fabCustomSize="32dp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/emoticon"
+                style="@style/AppTheme.IconButton"
+                app:fabCustomSize="32dp" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_small"
+                android:text="@={viewModel._messageContent}"
+                android:background="@android:color/transparent"
+                android:hint="@string/type_your_message" />
+
+            <Space
+                android:layout_width="@dimen/margin_normal"
+                android:layout_height="match_parent" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_send_white_18dp"
+                app:fabCustomSize="32dp"
+                android:onClick="@{()->viewModel.onSendMessage()}"
+                style="@style/AppTheme.IconButton" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

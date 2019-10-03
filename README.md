@@ -1,11 +1,15 @@
 ## Android Echo Chat Sample
 Demo api URL :  https://tourn.darkmatter.in/
 
-## Api Setting Android
+## Step 1
+Create two users on the demo web application one to send message and another to receive messages.
+
+
+## Step 2 : Api Setting Android
 Edit  `ApiConstant.kt` accordingly
  
 
-## To generate token for android from demo server
+## Step 3 :  To generate token for android from demo server
 
 **Use postman**
 Login EndPoint : https://tourn.darkmatter.in/api/login
@@ -20,5 +24,11 @@ Update access token and user id  in `MyApplication.kt` code:
 	    AccessTokenManager.save(user)  
     }
 
+## Step 4
 
+Run android
 
+## Step 5
+Open the web application https://tourn.darkmatter.in/ 
+Select the user whose access token is used in android android
+Then send the message.
